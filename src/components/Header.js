@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { headerNav } from "../contents/indexData"
 
 const Header=()=>{
+  const [show, setShow] = useState(false);
+  const toggleMenu=()=>{
+    setShow((prevShow)=>!prevShow);
+  } 
+
   return(
     <header id="header">
       <div className="header_inner">
-        <h1 className="logo">Site portfolio</h1>
+        <h1 className="header_logo"><a href="">My portfolio</a></h1>
         <nav className="header_nav" role="navigation" aria-label='메인메뉴'>
           <ul>
-            <li><a href="#intro">Intro</a></li>
-            <li><a href="#ability">Ability</a></li>
-            <li><a href="#stie">Site</a></li>
-            <li><a href="#project">Project</a></li>
-            <li><a href="#contact">Contact</a></li>
+            {
+              headerNav.map((nav, index)=>(
+                <li key={index}>
+                  <a href={nav.url}>{nav.title}</a>
+                </li>
+              ))
+            }
           </ul>
         </nav>
         <div className="header_nav_mobile" id="headerToggle" aria-controls="primary-menu" aria-expanded="false">
