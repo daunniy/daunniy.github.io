@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1><img src="image/logo.png" alt="shindaeun"></h1>
+    <nav>
+      <ul class="nav">
+        <li onclick="playSound('nav'); showMainSection('home', this)" class="selected">홈</li>
+        <li onclick="playSound('nav'); showMainSection('projects', this)">프로젝트</li>
+        <li onclick="playSound('nav'); showMainSection('intro', this)">소개</li>
+      </ul>
+      <ul class="cash">
+        <li onclick="playSound('nav');" class="rp">99999</li>
+        <li onclick="playSound('nav');" class="be">99999</li>
+      </ul>
+    </nav>
+  </header>
+  <span class="header-line"></span>
+  <div class="profile">
+    <div class="my">
+      <span onclick="playSound('profile'); showMainSection('intro', this)" class="status-indicator"></span>
+      <div class="text">
+        <h2>신다은</h2>
+        <span onclick="toggleStatus()"></span>
+        <p id="statusText">온라인</p>
+      </div>
+    </div>
+    <div class="communite">커뮤니티</div>
+  </div>
+
+  <audio id="navSound" src="audio/click.m4a" preload="auto"></audio>
+  <audio id="profileSound" src="audio/chii.m4a" preload="auto"></audio>
+  
+  <div id="home" class="section active">
+    <!-- 홈 섹션 내부 nav -->
+    <ul class="home-nav">
+      <li onclick="showHomeSubSection('outline', this)">개요</li>
+    </ul>
+    <!-- 홈 서브 section -->
+    <div id="outline" class="home-section active">
+      <h2>끊임없는 성장을 추구하는<br>신다은입니다.</h2>
+      <span>Daeun Shin - 2024.11.05</span>
+      <div class="text">
+        <span>&ldquo;</span>
+        <p>프로필 페이지에 방문해주셔서 진심으로 감사합니다!</p>
+      </div>
+      <p>프론트엔드 개발자로 첫 걸음을 내딛고자 하는 신입 개발자 신다은입니다.</p>
+      <div class="text">
+        <p>감사합니다!</p>
+        <span>&rdquo;</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="projects" class="section">
+
+    <ul class="projects-nav">
+      <li onclick="showProjectSubSection('all', this)">전체</li>
+    </ul>
+    <div id="all" class="projects-section active">
+      <div class="slider main-sect">
+        <div class="overlay-image"></div>
+        <div class="slides">
+          <div class="slide active" onclick="openPopup(1)">
+            <img src="image/image1.png" alt="이미지 1">
+          </div>
+          <div class="slide" onclick="openPopup(2)">
+            <img src="image/image2.png" alt="이미지 2">
+          </div>
+          <div class="slide" onclick="openPopup(3)">
+            <img src="image/image3.png" alt="이미지 3">
+          </div>
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+      </div>
+      <div class="sect">
+        <div class="sect1"></div>
+        <div class="sect2"></div>
+        <div class="sect3"></div>
+        <div class="sect4"></div>
+      </div>
+    </div>
+
+    <div id="portfolioPopup" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupTitle">포트폴리오 소개</h2>
+        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
+        <a id="popupLink" href="#" target="_blank" class="portfolio-link">포트폴리오 보러 가기</a>
+      </div>
+    </div>
+    
+  </div>
+
+  <div id="intro" class="section">
+    <h2>소개에 대한 내용</h2>
+    <p>여기에 소개 관련 설명이 들어갑니다.</p>
+  </div>
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>
