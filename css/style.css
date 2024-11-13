@@ -1,0 +1,940 @@
+
+
+/* 기본 모드 */
+:root {
+  --background-color:#000;
+  --text-color:#F6F1E1;
+  --title-color: #CDBE91;
+  --text-color-active: #A67D32;
+  --text-color-sub: #F0E6D2;
+  --title-size: 24px;
+  --profile-bg: rgb(6, 21, 29, 0.5);
+}
+
+@font-face {
+  font-family: 'KOTRA_BOLD-Bold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body, header, h1, h2, h3, p, nav, ul, li, span, input, textarea, dl, dt, dd, table, tr, th, td {
+  margin:0; padding:0;
+}
+
+table {
+  border-collapse: collapse; border-spacing: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+header, nav, #home, #projects, #intro {
+  max-width: 1440px; /* 최대 너비 설정 */
+  width: 100%; /* 화면 너비에 맞게 확장 */
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+header {
+  display:flex;
+}
+
+header, nav {
+  width: 1440px; margin:0 auto;
+}
+
+h1 {
+  margin-right:60px;
+}
+h1 img {
+  margin-top:24px;
+}
+
+nav {
+  display:flex;
+  gap: 350px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+.cash {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap:10px;
+  width: 50px;
+  font-size: 18px;
+}
+.cash li {
+  padding-left:20px;
+  width: 120px;
+  height:40px;
+  line-height: 40px;
+}
+.cash .rp, .cash .be {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cash .rp {
+  border: 1px solid var(--text-color-active);
+  border-radius: 20px;
+}
+.cash .rp::before, .cash .be::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background: url("../image/rp.webp") no-repeat;
+  background-size: contain;
+}
+.cash .be::before {
+  width: 24px;
+  height: 24px;
+  background-image: url("../image/be.png");
+}
+.cash .rp:hover::after, .cash .be:hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 100;
+  width: 100px;
+  height: 54px;
+  line-height: 50px;
+  font-size:16px;
+  background: url("../image/rpview.png") no-repeat;
+  background-size: contain;
+}
+.cash .rp:hover::after {
+  left: -40px;
+  bottom: -60px;
+}
+.cash .be:hover::after {
+  background-image: url(../image/beview.png);
+  width: 178px;
+  left: -70px;
+  bottom: -50px;
+}
+
+
+.header-line {
+  display:block;
+  position: absolute;
+  z-index: 10;
+  width:100%;
+  height:1px;
+  background: radial-gradient(rgba(255,255,255,0.5) 0%, rgba(205, 190, 145,0.3) 100%);
+  background-size:cover;
+}
+
+
+.nav li {
+  position: relative;
+  font-size: var(--title-size);
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+  color: var(--title-color);
+  height:120px;
+  line-height: 120px;
+  padding:0 50px;
+  cursor: pointer;
+  transition: all 0.7s, color 0.3s;
+}
+
+.nav li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 0;
+  height: 2px; /* 밑줄 두께 */
+  background: radial-gradient(rgba(255,255,255,0.7) 40%, rgba(0,0,0,0.5) 100%);  /* 밑줄 색상 */
+  transition: width 0.6s ease;
+}
+
+.nav li:hover {
+  background: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(205, 190, 145,0.5) 99%, rgba(255,255,255,0.8) 100%);
+  background-size: cover;
+  color: #F6F1E1;
+}
+
+.nav li:hover::after {
+  width: 100%;
+  box-shadow: 1px 2px 10px 0 rgba(255, 255, 255, 0.7);
+}
+
+.nav li:active {
+  color: var(--text-color-active);
+}
+
+.nav li.selected {
+  background:linear-gradient(rgba(0,0,0,0.5) 0%, rgba(205, 190, 145,0.3) 100%);
+  background-size: cover;
+  color: var(--text-color);
+}
+
+
+/* profile */
+.profile {
+  width: 300px;
+  height: 100%;
+  background-color: var(--profile-bg);
+  position: absolute;
+  top:0;
+  right:0;
+}
+.profile .my {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 120px;
+}
+.profile .my>span {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: url("../image/profile.jpg") no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+  border: 6px solid var(--text-color-active);
+  position: relative;
+  cursor: pointer;
+  transition: border .1s;
+}
+.profile .my>span::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: var(--text-color-active);
+  border: 2px solid var(--text-color-active);
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: absolute;
+  top:-4px;
+  right: -24px;
+  animation: glow 2s infinite; /* 애니메이션 추가 */
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px var(--text-color-active);
+    border: 2px solid rgb(166, 125, 50, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--text-color-active), 0 0 30px var(--text-color-active);
+    background: #FFFEB8;
+    border: 2px solid rgb(166, 125, 50, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--text-color-active);
+    border: 2px solid rgb(166, 125, 50, 0.8);
+  }
+}
+.profile .my span:hover {
+  border: 6px solid #F2B749;
+}
+
+
+.profile .my .status-indicator:hover + .text {
+  display: inline-flex;
+  align-items: center; /* 세로 정렬 중앙 */
+  position: relative; /* 자식 요소들이 절대 위치를 잡을 수 있게 설정 */
+}
+.profile .my .status-indicator:hover + .text h2,
+.profile .my .status-indicator:hover + .text span,
+.profile .my .status-indicator:hover + .text p,
+.profile .my .status-indicator:hover + .text #statusText {
+  display: none;
+  pointer-events: none; /* hover 시 "소개 보기" 이외의 요소 클릭 방지 */
+}
+.profile .my .status-indicator:hover + .text::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  background: url("../image/intro.png") no-repeat;
+  background-size: contain;
+}
+/* "소개 보기" 텍스트를 추가 */
+.profile .my .status-indicator:hover + .text::after {
+  content: "소개 보기";
+  display: inline-block;
+  font-size: 16px;
+  color: var(--title-color);
+  opacity: 1;
+}
+
+.profile .my .text h2 {
+  font-size:20px;
+}
+/* 기본 상태 */
+#statusText {
+  display: inline-block;
+  color: #03A741;
+}
+/* 자리비움 상태 */
+#statusText.away {
+  color: #9F9A8D;
+}
+.profile .my .text span {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: #1D825A;
+  border: 3px solid #35D987;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.profile .my .text span.away {
+  background: none; /* 자리비움 상태 배경 색상 */
+  border: 3px solid #BD1E38; /* 자리비움 상태 테두리 색상 */
+}
+
+
+
+
+/* community */
+
+.communite {
+  color: var(--text-color-sub);
+}
+.communite h2 {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+.communite .add {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+
+/* 댓글 추가*/
+.add-button {
+  display: block;
+  background: transparent url("../image/add.png") no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+.add-button:hover {
+  background-image: url("../image/add-hover.png");
+}
+
+.image-preview-container {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+.preview-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .2s;
+  opacity: 0.7;
+}
+.preview-image.selected {
+  opacity: 1;
+}
+
+/* 메모 레이아웃 스타일 */
+.memo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  position: relative;
+  min-height:62px;
+}
+.memo:hover {
+  background-color: #1C2326;
+}
+
+
+.memo-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid var(--text-color-active);
+  box-sizing: border-box;
+}
+
+.memo-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.memo-content h3 {
+  font-size: 18px;
+  opacity: 0.7;
+}
+.memo-content p {
+  color: #16CAE5;
+  opacity: 0.7;
+}
+.memo:hover .memo-content h3, .memo:hover .memo-content p {
+  opacity: 1;
+}
+
+.memo-actions {
+  display: none;
+}
+.memo:hover .memo-actions {
+  display: block;
+}
+
+
+.memo button {
+  background-color: transparent;
+  border: 1px solid #fff ;
+  color: var(--text-color-sub);
+  padding: 5px;
+  cursor: pointer;
+}
+.memo-actions {
+  position: absolute;
+  right: 10px;
+  top:50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.memo button:hover {
+  
+  
+}
+
+/* 모달 스타일 */
+.modal {
+  display: none; /* 처음에는 숨김 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background-color: #000;
+  border: 1px solid var(--text-color-active);
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+.modal-content h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.modal-content h3, .modal-content p {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#name, #message, #password {
+  height: 20px;
+  border: 1px solid var(--text-color-active);
+}
+#name {
+  width: 20%;
+}
+#message {
+  width: 47%;
+}
+#password {
+  width: 30%;
+}
+
+.modal-content button {
+  background: none;
+  border: 1px solid var(--text-color-active);
+  color: var(--text-color);
+  margin-left: 107px;
+}
+#customImage {
+  
+}
+
+
+.password-input {
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+
+/* home nav */
+.home-nav, .projects-nav, .intro-nav {
+  margin-top: 20px;
+  color: var(--title-color);
+}
+.home-nav {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.home-nav li, .projects-nav li, .intro-nav li {
+  display:inline;
+  cursor: pointer;
+  transition: all .3s;
+  color: var(--title-color);
+}
+.projects-nav li, .intro-nav li {
+  margin-left:10px;
+  color: var(--text-color);
+}
+.home-nav li::after, .projects-nav li::after, .intro-nav li::after {
+  content: "";
+  display:block;
+  margin-top:4px;
+  width: 50px;
+  height: 2px; /* 밑줄 두께 */
+  background: radial-gradient(rgba(205, 190, 145,0.8) 0%, rgba(0,0,0,0.5) 100%);
+  box-shadow: 1px 1px 10px 0 rgba(255, 255, 255, 0.1);
+}
+.home-nav li:hover, .home-nav li.active {
+  color: var(--text-color);
+}
+.home-nav li:active {
+  color: var(--text-color-active);
+}
+
+
+
+/* nav바 컨트롤 */
+.section {
+  display: none; /* 모든 섹션을 처음에는 숨김 */
+}
+
+#home, #projects, #intro {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.section.active {
+  display: block; /* 'active' 클래스를 가진 섹션만 표시 */
+}
+
+.home-section {
+  display: none;
+  margin:40px 0;
+}
+/* 홈 섹션의 서브 섹션 활성화 */
+.home-section.active {
+  display: block;
+}
+.home-section h2 {
+
+}
+.home-section span {
+  color: #A69F94;
+}
+.home-section .text {
+  display:flex;
+  align-items: center;
+}
+.home-section .text p {
+  font-size: 18px;
+}
+.home-section .text:last-of-type p {
+  margin-left: 40px;
+}
+.home-section .text span {
+  font-family: 'KOTRA_BOLD-Bold';
+  font-size: 50px;
+  padding:40px 10px 0;
+}
+.home-section .text div {
+  flex-direction: column;
+}
+
+#outline.home-section>p {
+  margin-left: 40px;
+  font-size: 18px;
+}
+
+.home-section img {
+  width: 200px;
+}
+
+.home-section dl {
+  display: flex;
+}
+.home-section dt {
+  width: 100px;
+}
+.home-section dt span {
+  display: block;
+}
+.home-section dd img {
+  width: 20px;
+  cursor: pointer;
+}
+
+#profile .container {
+  display: flex;
+}
+#profile .container a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+#profile .container strong {
+
+}
+#profile table {
+  margin-left: 20px;
+}
+#profile th {
+  text-align: left;
+  width: 90px;
+  border-right: 1px solid var(--text-color-active);
+}
+#profile td {
+  padding-left: 20px;
+}
+#profile td strong {
+  margin-right: 10px;
+}
+#profile td img {
+  width: auto;
+  height: 36px;
+  opacity: 0.8;
+  transition: all .3s;
+}
+#profile td img:hover {
+  opacity: 1;
+}
+
+
+.projects-section {
+  margin: 40px 0;
+  display: flex;
+  gap: 14px;
+  width: 1000px;
+  cursor: pointer;
+}
+.projects-section .main-sect {
+  min-width: 60%;
+  border: 2px solid rgba(255,255,255,0.3);
+  opacity: 0.7;
+  position: relative;
+}
+.projects-section .sect {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  min-width: 50%;
+}
+.projects-section .sect div {
+  width: 48%;
+  border: 2px solid rgba(255,255,255,0.3);
+  box-sizing: border-box;
+  opacity: 0.8;
+}
+
+.projects-section .main-sect:hover, .projects-section .sect div:hover {
+  opacity: 1;
+  border: 2px solid var(--text-color);
+}
+
+
+.overlay-image {
+  position: absolute;
+  z-index: 10;
+  top: 50%; /* 중앙에 위치 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; /* 이미지 크기 */
+  height: 80px;
+  background: url('../image/projects-hover.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0; /* 기본적으로 숨김 */
+  transition: opacity 0.3s ease; /* 전환 시 애니메이션 */
+  pointer-events: none;
+}
+
+
+
+
+
+.slider {
+  min-width: 560px;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 450px;
+  box-sizing: border-box;
+  background: url("../image/image1.png") no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+.slide:nth-child(2) {
+  background: url("../image/image2.png") left center;
+  background-size: cover;
+}
+.slide:nth-child(3) {
+  background-image: url("../image/image3.png");
+}
+.slide .text-wrap {
+  position: absolute;
+  left: 20px;
+  bottom: 50px;
+  text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+}
+.slide .text-wrap span {
+  font-weight: 600;
+}
+.slide .text-wrap h3 {
+  font-weight: 800;
+  font-size: 38px;
+}
+.slide:nth-child(1) .text-wrap span {
+  color: #fff;
+}
+.slide:nth-child(1) .text-wrap h3 {
+  color: #FDCEDE;
+}
+.slide:nth-child(2) .text-wrap span {
+  color: #fff;
+}
+.slide:nth-child(2) .text-wrap h3 {
+  color: #8DA6F2;
+}
+.slide:nth-child(3) .text-wrap h3 {
+  color: #fff;
+}
+
+
+.sect div {
+  background: url("../image/image4.png") no-repeat top center;
+  background-size: cover;
+}
+.sect div:nth-child(2) {
+  background-image: url("../image/image5.png")
+}
+
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background:#ccc;
+  color: #555;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  width:30px;
+  height:32px;
+}
+.prev:hover, .next:hover {
+  background:linear-gradient(#fff 0%, var(--text-color-active) 100%);
+  color: var(--text-color);
+}
+
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+.prev::after, .next::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:28px;
+  height:30px;
+  background:#333;
+}
+
+
+/* 팝업 기본 스타일 */
+.popup {
+  display: none; /* 기본적으로 숨김 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* 반투명 배경 */
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* 팝업 콘텐츠 스타일 */
+#popup-content {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  padding: 30px;
+  background-color: #000;
+  border: 2px solid rgb(166, 125, 50, 0.5);
+}
+
+#popup-content h2 {
+  border-bottom: 1px solid var(--text-color-active);
+  padding-bottom: 20px;
+}
+
+#popup-content p {
+  margin: 20px 0;
+}
+
+.portfolio-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: linear-gradient(rgba(0,0,0,0.5) 0%, rgb(166, 125, 50, 0.5) 100%);
+  border: 2px solid rgb(166, 125, 50, 0.6);
+  color: var(--text-color-sub);
+  text-decoration: none;
+  text-align: center;
+}
+
+.portfolio-link:hover {
+  background: linear-gradient(rgba(0,0,0,0.5) 0%, rgb(166, 125, 50, 0.7) 100%);
+}
+
+/* 닫기 버튼 스타일 */
+.close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  font-size: 30px;
+  width:30px;
+  height: 30px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #000;
+  color: rgb(166, 125, 50, 0.7);
+  border: 2px solid rgb(166, 125, 50);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .3s;
+  opacity: 0.8;
+}
+.close:hover {
+  opacity: 1;
+}
+
+
+
+
+.intro-section {
+  width: 1240px;
+  margin: 340px 0;
+  display: flex;
+}
+.intro-section div {
+  width: 180px;
+  height: 220px;
+}
+.intro-section .info span {
+  display: block;
+  width: 150px;
+  height: 150px;
+  background: url("../image/rank.png") no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+}
+.intro-section div:hover {
+  background: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(205, 190, 145,0.3) 100%);
+}
+.intro-section div p {
+  text-align: center;
+  color: var(--title-color);
+}
+.intro-section div:hover p {
+  color: var(--text-color);
+}
+.intro-section .skill {
+  position: relative;
+}
+.intro-section .skill:hover::after {
+  content:"";
+  background: #000 url("../image/skill3.png") no-repeat center;
+  background-size: contain;
+  border: 1px solid var(--text-color-active);
+  position: absolute;
+  width: 450px;
+  height: 180px;
+  top: -200px;
+  left: -140px;
+}
+.intro-section .skill span {
+  display: block;
+  width: 110px;
+  height: 160px;
+  background: url("../image/skill1.png") no-repeat;
+  background-size: contain;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.intro-section .skill span::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 80px;
+  background: url("../image/skill2.png") no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}

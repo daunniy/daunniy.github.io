@@ -13,7 +13,7 @@
       <ul class="nav">
         <li onclick="playSound('nav'); showMainSection('home', this)" class="selected">홈</li>
         <li onclick="playSound('nav'); showMainSection('projects', this)">프로젝트</li>
-        <li onclick="playSound('nav'); showMainSection('intro', this)">소개</li>
+        <li onclick="playSound('nav'); showMainSection('intro', this)">정보</li>
       </ul>
       <ul class="cash">
         <li onclick="playSound('nav');" class="rp">99999</li>
@@ -31,7 +31,36 @@
         <p id="statusText">온라인</p>
       </div>
     </div>
-    <div class="communite">커뮤니티</div>
+    <div class="communite">
+      <div class="add">
+        <h2>커뮤니티</h2>
+        <button onclick="openModal()" class="add-button">추가</button>
+      </div>
+      <div id="memo-list" class="memo-list"></div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>추가</h2>
+      <input type="text" id="name" placeholder="닉네임">
+      <input id="message" placeholder="메시지"></input>
+      <input type="password" id="password" placeholder="비밀번호 숫자 4자리">
+        <h3>아이콘 선택</h3>
+        <div class="image-preview-container">
+          <img src="image/5453.jpg" class="preview-image" onclick="selectImage('image/5453.jpg')" alt="1">
+          <img src="image/4895.jpg" class="preview-image" onclick="selectImage('image/4895.jpg')" alt="2">
+          <img src="image/4025.jpg" class="preview-image" onclick="selectImage('image/4025.jpg')" alt="3">
+          <img src="image/1114.jpg" class="preview-image" onclick="selectImage('image/1114.jpg')" alt="4">
+          <img src="image/5455.jpg" class="preview-image" onclick="selectImage('image/5455.jpg')" alt="5">
+          <img src="image/4020.jpg" class="preview-image" onclick="selectImage('image/4020.jpg')" alt="6">
+          <img src="image/3152.jpg" class="preview-image" onclick="selectImage('image/3152.jpg')" alt="7">
+        </div>
+      <p>또는 파일을 업로드하세요</p>
+      <input type="file" id="customImage" accept="image/*" onchange="previewCustomImage(event)">
+      <button onclick="addMemo()">저장</button>
+    </div>
   </div>
 
   <audio id="navSound" src="audio/click.m4a" preload="auto"></audio>
@@ -40,7 +69,8 @@
   <div id="home" class="section active">
     <!-- 홈 섹션 내부 nav -->
     <ul class="home-nav">
-      <li onclick="showHomeSubSection('outline', this)">개요</li>
+      <li class="active" onclick="showHomeSubSection('outline', this)">개요</li>
+      <li onclick="showHomeSubSection('profile', this)">프로필</li>
     </ul>
     <!-- 홈 서브 section -->
     <div id="outline" class="home-section active">
@@ -56,6 +86,51 @@
         <span>&rdquo;</span>
       </div>
     </div>
+    <div id="profile" class="home-section">
+      <div class="container">
+        <img src="image/photo.JPG" alt="">
+        <table>
+          <tr>
+            <th>이름</th>
+            <td>신다은</td>
+          </tr>
+          <tr>
+            <th>생년월일</th>
+            <td>2003.08.05</td>
+          </tr>
+          <tr>
+            <th>SNS</th>
+            <td>
+              <a href="https://github.com/daunniy?tab=repositories"><img src="image/github.png" alt=""></a>
+              <a href="https://www.instagram.com/daunniy/"><img src="image/insta.png" alt=""></a>
+            </td>
+          </tr>
+          <tr>
+            <th>경력</th>
+            <td>
+              UI/UX 프론트엔드 개발 양성 과정 수강 (2024)<br>
+              관세법인 우신 사원 (2024)<br>
+              인천관세법인 주임 (2021-2023)
+            </td>
+          </tr>
+          <tr>
+            <th>기술 스택</th>
+            <td>
+              <img src="image/html.png" alt="">
+              <img src="image/css.png" alt="">
+              <img src="image/js.png" alt="">
+              <img src="image/react.png" alt="">
+              <img src="image/vue.png" alt="">
+              <img src="image/figma.png" alt="">
+              <img src="image/photoshap.png" alt="">
+              <img src="image/illu.png" alt="">
+              <img src="image/notion.png" alt="">
+              <img src="image/git.png" alt="">
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 
   <div id="projects" class="section">
@@ -68,40 +143,100 @@
         <div class="overlay-image"></div>
         <div class="slides">
           <div class="slide active" onclick="openPopup(1)">
-            <img src="image/image1.png" alt="이미지 1">
+            <div class="text-wrap">
+              <span>직접 플레이 해보세요!</span>
+              <h3>먼작귀 미니 게임</h3>
+            </div>
           </div>
           <div class="slide" onclick="openPopup(2)">
-            <img src="image/image2.png" alt="이미지 2">
+            <div class="text-wrap">
+              <span>다양한 캐릭터 카드를 만나보세요!</span>
+              <h3>신한카드 리뉴얼</h3>
+            </div>
           </div>
           <div class="slide" onclick="openPopup(3)">
-            <img src="image/image3.png" alt="이미지 3">
+            <div class="text-wrap">
+              <span></span>
+              <h3>유니언 호텔 리뉴얼</h3>
+            </div>
           </div>
         </div>
         <button class="prev" onclick="prevSlide()">&#10094;</button>
         <button class="next" onclick="nextSlide()">&#10095;</button>
       </div>
       <div class="sect">
-        <div class="sect1"></div>
-        <div class="sect2"></div>
-        <div class="sect3"></div>
-        <div class="sect4"></div>
+        <div class="sect1" onclick="openPopup(4)"></div>
+        <div class="sect2" onclick="openPopup(5)"></div>
+        <div class="sect3" onclick="openPopup(6)"></div>
+        <div class="sect4" onclick="openPopup(7)"></div>
       </div>
     </div>
 
     <div id="portfolioPopup" class="popup">
-      <div class="popup-content">
+      <div id="popup-content" class="popup-content1">
         <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle">포트폴리오 소개</h2>
+        <h2 id="popupTitle">먼작귀 게임</h2>
+        <p id="popupDescription">Viewport 반응형</p>
+        <p id="popupDescription">제작기간 2주</p>
+        <p id="popupDescription">기술 스택</p>
+        <a id="popupLink" href="https://github.com/daunniy/chiikawagame" target="_blank" class="portfolio-link">Github</a>
+        <a id="popupLink" href="https://daunniy.github.io/chiikawagame/" target="_blank" class="portfolio-link">URL</a>
+      </div>
+      <div id="popup-content" class="popup-content2">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupTitle">신한카드</h2>
         <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
-        <a id="popupLink" href="#" target="_blank" class="portfolio-link">포트폴리오 보러 가기</a>
+        <a id="popupLink" href="https://github.com/daunniy/sinhancard" target="_blank" class="portfolio-link">Github</a>
+        <a id="popupLink" href="https://daunniy.github.io/sinhancard/" target="_blank" class="portfolio-link">URL</a>
+      </div>
+      <div id="popup-content" class="popup-content3">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupTitle">유니언 호텔</h2>
+        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
+        <a id="popupLink" href="http://daunniy.dothome.co.kr/unionhotel/" target="_blank" class="portfolio-link">URL</a>
+      </div>
+      <div id="popup-content" class="popup-content4">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupTitle">날씨 App</h2>
+        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
+        <a id="popupLink" href="https://daunniy.github.io/weather/" target="_blank" class="portfolio-link">Github</a>
+      </div>
+      <div id="popup-content" class="popup-content5">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupTitle">밀리</h2>
+        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
+        <a id="popupLink" href="https://daunniy.github.io/weather/" target="_blank" class="portfolio-link">Github</a>
+      </div>
+      <div id="popup-content" class="popup-content6">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupTitle">밀리</h2>
+        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
+        <a id="popupLink" href="https://daunniy.github.io/weather/" target="_blank" class="portfolio-link">Github</a>
+      </div>
+      <div id="popup-content" class="popup-content7">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupTitle">밀리</h2>
+        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
+        <a id="popupLink" href="https://daunniy.github.io/weather/" target="_blank" class="portfolio-link">Github</a>
       </div>
     </div>
     
   </div>
 
   <div id="intro" class="section">
-    <h2>소개에 대한 내용</h2>
-    <p>여기에 소개 관련 설명이 들어갑니다.</p>
+    <ul class="intro-nav">
+      <li>개요</li>
+    </ul>
+    <div class="intro-section active">
+      <div class="info">
+        <p>개인/2인전</p>
+        <span></span>
+      </div>
+      <div class="skill">
+        <p>숙련도</p>
+        <span></span>
+      </div>
+    </div>
   </div>
 
 
