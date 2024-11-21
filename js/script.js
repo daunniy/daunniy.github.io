@@ -189,11 +189,11 @@ function openPopup(slideNumber) {
   } else if (slideNumber === 4) {
     document.querySelector('.popup-content4').style.display = 'block';
   } else if (slideNumber === 5) {
-    document.querySelector('.popup-content4').style.display = 'block';
+    document.querySelector('.popup-content5').style.display = 'block';
   } else if (slideNumber === 6) {
-    document.querySelector('.popup-content4').style.display = 'block';
+    document.querySelector('.popup-content6').style.display = 'block';
   } else if (slideNumber === 7) {
-    document.querySelector('.popup-content4').style.display = 'block';
+    document.querySelector('.popup-content7').style.display = 'block';
 }
 
   // 팝업을 표시

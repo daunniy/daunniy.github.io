@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <header>
@@ -75,7 +76,7 @@
     <!-- 홈 서브 section -->
     <div id="outline" class="home-section active">
       <h2>끊임없는 성장을 추구하는<br>신다은입니다.</h2>
-      <span>Daeun Shin - 2024.11.05</span>
+      <span>Daeun Shin - 2024.11.19</span>
       <div class="text">
         <span>&ldquo;</span>
         <p>프로필 페이지에 방문해주셔서 진심으로 감사합니다!</p>
@@ -175,52 +176,146 @@
     <div id="portfolioPopup" class="popup">
       <div id="popup-content" class="popup-content1">
         <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle">먼작귀 게임</h2>
-        <p id="popupDescription">Viewport 반응형</p>
-        <p id="popupDescription">제작기간 2주</p>
-        <p id="popupDescription">기술 스택</p>
-        <a id="popupLink" href="https://github.com/daunniy/chiikawagame" target="_blank" class="portfolio-link">Github</a>
-        <a id="popupLink" href="https://daunniy.github.io/chiikawagame/" target="_blank" class="portfolio-link">URL</a>
+        <button class="prev" onclick="openPopup(3)">&#10094;</button>
+        <button class="next" onclick="openPopup(2)">&#10095;</button>
+        <div class="popupTitle">
+          <h2>먼작귀 게임</h2>
+          <span>#PC #Mobile #반응형</span>
+        </div>
+        <div class="popupInfo">
+          <h3>소개</h3>
+          <p>작업기간 2024.08 - 08 (7일)</p>
+          <video width="736" height="400" controls autoplay loop muted>
+            <source src="image/game.mp4" type="video/mp4">
+          </video>
+          <video width="320" height="240" controls autoplay loop muted>
+            <source src="image/game_m.mp4" type="video/mp4">
+          </video>
+        </div>
+        <a href="https://github.com/daunniy/chiikawagame" target="_blank" class="portfolio-link">Github</a>
+        <a href="https://daunniy.github.io/chiikawagame/" target="_blank" class="portfolio-link">URL</a>
       </div>
       <div id="popup-content" class="popup-content2">
         <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle">신한카드</h2>
-        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
-        <a id="popupLink" href="https://github.com/daunniy/sinhancard" target="_blank" class="portfolio-link">Github</a>
-        <a id="popupLink" href="https://daunniy.github.io/sinhancard/" target="_blank" class="portfolio-link">URL</a>
+        <button class="prev" onclick="openPopup(1)">&#10094;</button>
+        <button class="next" onclick="openPopup(3)">&#10095;</button>
+        <div class="popupTitle">
+          <h2>신한카드</h2>
+          <span>#PC #Mobile #반응형</span>
+        </div>
+        <div class="popupInfo">
+          <h3>소개</h3>
+          <p>작업기간 1주</p>
+          <video width="736" height="400" controls autoplay loop muted>
+            <source src="image/card.mp4" type="video/mp4">
+          </video>
+          <video width="320" height="240" controls autoplay loop muted>
+            <source src="image/card_m.mp4" type="video/mp4">
+          </video>
+        </div>
+        <a href="https://github.com/daunniy/sinhancard" target="_blank" class="portfolio-link">Github</a>
+        <a href="https://daunniy.github.io/sinhancard/" target="_blank" class="portfolio-link">URL</a>
       </div>
       <div id="popup-content" class="popup-content3">
         <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle">유니언 호텔</h2>
-        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
-        <a id="popupLink" href="https://github.com/daunniy/unionhotel" target="_blank" class="portfolio-link">Github</a>
-        <a id="popupLink" href="https://daunniy.github.io/unionhotel/" target="_blank" class="portfolio-link">URL</a>
+        <button class="prev" onclick="openPopup(2)">&#10094;</button>
+        <button class="next" onclick="openPopup(1)">&#10095;</button>
+        <div class="popupTitle">
+          <h2>유니언 호텔</h2>
+          <span>#PC #Mobile #반응형</span>
+        </div>
+        <div class="popupInfo">
+          <h3>소개</h3>
+          <video width="724" height="400" controls autoplay loop muted>
+            <source src="image/hotel.mp4" type="video/mp4">
+          </video>
+          <video width="320" height="240" controls autoplay loop muted>
+            <source src="image/hotel_m.mp4" type="video/mp4">
+          </video>
+        </div>
+        <a href="https://github.com/daunniy/unionhotel" target="_blank" class="portfolio-link">Github</a>
+        <a href="https://daunniy.github.io/unionhotel/" target="_blank" class="portfolio-link">URL</a>
       </div>
       <div id="popup-content" class="popup-content4">
         <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle">날씨 App</h2>
-        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
-        <a id="popupLink" href="https://daunniy.github.io/weather/" target="_blank" class="portfolio-link">Github</a>
+        <button class="prev" onclick="openPopup(7)">&#10094;</button>
+        <button class="next" onclick="openPopup(5)">&#10095;</button>
+        <div class="popupTitle">
+          <h2>날씨앱</h2>
+          <span>#React</span>
+        </div>
+        <div class="popupInfo">
+          <h3>소개</h3>
+          <video width="724" height="400" controls autoplay loop muted>
+            <source src="image/hotel.mp4" type="video/mp4">
+          </video>
+          <video width="320" height="240" controls autoplay loop muted>
+            <source src="image/hotel_m.mp4" type="video/mp4">
+          </video>
+        </div>
+        <a href="https://github.com/daunniy/sinhancard" target="_blank" class="portfolio-link">Github</a>
+        <a href="https://daunniy.github.io/sinhancard/" target="_blank" class="portfolio-link">URL</a>
       </div>
       <div id="popup-content" class="popup-content5">
         <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle">밀리</h2>
-        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
-        <a id="popupLink" href="https://daunniy.github.io/weather/" target="_blank" class="portfolio-link">Github</a>
+        <button class="prev" onclick="openPopup(4)">&#10094;</button>
+        <button class="next" onclick="openPopup(6)">&#10095;</button>
+        <div class="popupTitle">
+          <h2>밀리의 서재</h2>
+          <span>#PC #Mobile #반응형</span>
+        </div>
+        <div class="popupInfo">
+          <h3>소개</h3>
+          <video width="724" height="400" controls autoplay loop muted>
+            <source src="image/millie.mp4" type="video/mp4">
+          </video>
+          <video width="320" height="240" controls autoplay loop muted>
+            <source src="image/hotel_m.mp4" type="video/mp4">
+          </video>
+        </div>
+        <a href="https://github.com/daunniy/millie" target="_blank" class="portfolio-link">Github</a>
+        <a href="https://daunniy.github.io/millie/" target="_blank" class="portfolio-link">URL</a>
       </div>
       <div id="popup-content" class="popup-content6">
         <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle">밀리</h2>
-        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
-        <a id="popupLink" href="https://daunniy.github.io/weather/" target="_blank" class="portfolio-link">Github</a>
+        <button class="prev" onclick="openPopup(5)">&#10094;</button>
+        <button class="next" onclick="openPopup(7)">&#10095;</button>
+        <div class="popupTitle">
+          <h2>메모장</h2>
+          <span>#React</span>
+        </div>
+        <div class="popupInfo">
+          <h3>소개</h3>
+          <video width="724" height="400" controls autoplay loop muted>
+            <source src="image/hotel.mp4" type="video/mp4">
+          </video>
+          <video width="320" height="240" controls autoplay loop muted>
+            <source src="image/hotel_m.mp4" type="video/mp4">
+          </video>
+        </div>
+        <a href="https://github.com/daunniy/s" target="_blank" class="portfolio-link">Github</a>
+        <a href="https://daunniy.github.io/sinhancard/" target="_blank" class="portfolio-link">URL</a>
       </div>
       <div id="popup-content" class="popup-content7">
         <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle">밀리</h2>
-        <p id="popupDescription">여기에 포트폴리오 소개 내용을 작성하세요.</p>
-        <a id="popupLink" href="https://daunniy.github.io/weather/" target="_blank" class="portfolio-link">Github</a>
+        <button class="prev" onclick="openPopup(6)">&#10094;</button>
+        <button class="next" onclick="openPopup(4)">&#10095;</button>
+        <div class="popupTitle">
+          <h2>CGV</h2>
+          <span>#React #PC #Mobile</span>
+        </div>
+        <div class="popupInfo">
+          <h3>소개</h3>
+          <video width="724" height="400" controls autoplay loop muted>
+            <source src="image/cgv.mp4" type="video/mp4">
+          </video>
+          <video width="320" height="240" controls autoplay loop muted>
+            <source src="image/hotel_m.mp4" type="video/mp4">
+          </video>
+        </div>
+        <a href="https://github.com/daunniy/cgv" target="_blank" class="portfolio-link">Github</a>
+        <a href="https://daunniy.github.io/cgv/" target="_blank" class="portfolio-link">URL</a>
       </div>
-    </div>
     
   </div>
 
