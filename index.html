@@ -75,13 +75,18 @@
     </ul>
     <!-- 홈 서브 section -->
     <div id="outline" class="home-section active">
-      <h2>끊임없는 성장을 추구하는<br>신다은입니다.</h2>
-      <span>Daeun Shin - 2024.11.19</span>
+      <h2>끊임없는 성장을 추구하는<br>신다은입니다 🗝</h2>
+      <span>Daeun Shin - 1일 전</span>
       <div class="text">
         <span>&ldquo;</span>
         <p>프로필 페이지에 방문해주셔서 진심으로 감사합니다!</p>
       </div>
       <p>프론트엔드 개발자로 첫 걸음을 내딛고자 하는 신입 개발자 신다은입니다.</p>
+      <p>HTML, CSS, JavaScript를 학습한 뒤 React와 Vue.js와 같은 프레임워크를 사용한 프로젝트 공부에 중점을 두고있습니다.<br>
+        저는 사용자 경험을 최우선으로 고려하며, 직관적이고 반응성 좋은 UI를 만드는 데 큰 관심을 두고 있습니다.</p>
+      <p>끊임없이 배우고, 도전하는 자세로 매일 발전하는 개발자가 되고자 합니다.<br>
+        저의 개발 여정을 함께 하게 될 기회를 주신다면, 항상 성장하는 모습을 보여드리겠습니다.
+        </p>
       <div class="text">
         <p>감사합니다!</p>
         <span>&rdquo;</span>
@@ -144,22 +149,10 @@
         <div class="overlay-image"></div>
         <div class="slides">
           <div class="slide active" onclick="openPopup(1)">
-            <div class="text-wrap">
-              <span>직접 플레이 해보세요!</span>
-              <h3>먼작귀 미니 게임</h3>
-            </div>
           </div>
           <div class="slide" onclick="openPopup(2)">
-            <div class="text-wrap">
-              <span>다양한 캐릭터 카드를 만나보세요!</span>
-              <h3>신한카드 리뉴얼</h3>
-            </div>
           </div>
           <div class="slide" onclick="openPopup(3)">
-            <div class="text-wrap">
-              <span></span>
-              <h3>유니언 호텔 리뉴얼</h3>
-            </div>
           </div>
         </div>
         <button class="prev" onclick="prevSlide()">&#10094;</button>
@@ -174,24 +167,145 @@
     </div>
 
     <div id="portfolioPopup" class="popup">
+      <div id="fullImageContainer" class="hidden">
+        <img id="fullImage" src="" alt="Full Size Image">
+        <span class="imgClose" onclick="closeImage()">×</span>
+      </div>
       <div id="popup-content" class="popup-content1">
         <span class="close" onclick="closePopup()">&times;</span>
         <button class="prev" onclick="openPopup(3)">&#10094;</button>
         <button class="next" onclick="openPopup(2)">&#10095;</button>
         <div class="popupTitle">
-          <h2>먼작귀 게임</h2>
+          <h2>먼작귀, 몬스터 토벌!</h2>
           <span>#PC #Mobile #반응형</span>
         </div>
+
         <div class="popupInfo">
-          <h3>소개</h3>
-          <p>작업기간 2024.08 - 08 (7일)</p>
-          <video width="736" height="400" controls autoplay loop muted>
-            <source src="image/game.mp4" type="video/mp4">
-          </video>
-          <video width="320" height="240" controls autoplay loop muted>
-            <source src="image/game_m.mp4" type="video/mp4">
-          </video>
+          
+          <!-- 프로젝트 개요 -->
+          <section class="project-overview">
+            <h4>프로젝트 개요</h4>
+            <p>이 게임은 제가 좋아하는 캐릭터인 치이카와(Chiikawa)를 중심으로 개발한 프로젝트입니다. 유년 시절 즐겨 하던 플래시 게임에서 영감을 받아 제작하였습니다.</p>
+              
+            <p>간단하지만 중독성 있는 게임 플레이와 귀여운 디자인을 통해 누구나 쉽고 즐겁게 게임을 즐길 수 있도록 하였습니다. 프로젝트는 약 2주간의 작업 기간 동안 개발되었으며, 완성 후에는 지인들에게 배포하여 피드백을 받고, 그 피드백을 반영하여 점차적으로 개선해 나갔습니다.</p>
+              
+            <p>누구나 쉽게 접근할 수 있도록 직관적이고 간단한 인터페이스를 제공하며, 짧은 시간 안에 게임의 흐름을 직관적으로 파악할 수 있도록 설계하였습니다.</p>
+
+            <p>흥미가 생기셨나요? 그렇다면 <a href="https://daunniy.github.io/chiikawagame/">여기↗</a> 또는 아래 (URL)버튼을 눌러서 플레이하실 수 있습니다.</p>
+          </section>
+        
+          <!-- 주요 기능 -->
+          <section class="key-features">
+            <h4>주요 기능</h4>
+            <ul>
+              <li><strong>[카운트다운]</strong>: 게임 시작 전 3초 카운트다운 후 게임이 시작</li>
+              <li><strong>[이미지 클릭]</strong>: 화면에 등장하는 이미지를 클릭하면 점수 획득 또는 생명이 감소</li>
+              <li><strong>[점수 관리]</strong>: 플레이어의 점수는 클릭한 이미지에 따라 증가, 일정 점수에 도달하면 게임의 난이도가 상승</li>
+              <li><strong>[타이머]</strong>: 제한 시간(25초) 동안 이미지를 클릭하여 점수 획득, 일정 점수 이상 획득시 추가 시간이 부여</li>
+              <li><strong>[시각적 효과]</strong>: 올바른 이미지를 클릭하면 'blink' 효과, 잘못된 이미지를 클릭하면 'shake' 효과가 적용</li>
+              <li><strong>[게임 종료 및 결과 화면]</strong>: 게임 종료후 점수에 따른 결과 화면 등장 및 최종 점수를 확인</li>
+            </ul>
+          </section>
+
+          <section id="technologies">
+            <h4>사용 기술 스택</h4>
+            <ul>
+              <li><strong>HTML5</strong>: 게임의 기본 구조와 레이아웃</li>
+              <li><strong>CSS3</strong>: 스타일링 및 애니메이션 효과 구현 및 <code>@keyframes</code>와 <code>transition</code>을 사용한 다양한 시각적 효과 적용</li>
+              <li><strong>JavaScript</strong>: DOM을 조작하여 타이머, 카운트다운, 이미지 등장, 점수 및 생명 관리 등을 구현</li>
+            </ul>
+          </section>
+
+          <section id="ui-ux">
+            <h4>UI/UX 디자인</h4>
+            <p>
+              전체적인 디자인은 귀엽고 친근한 색감을 사용하여, 쉽게 접근하고 즐길 수 있도록 하였음. 시각적으로 편안하고 기분 좋은 느낌을 주며, 플래시 게임을 연상시키는 간단하고 직관적인 디자인을 채택하였음. 
+              게임의 인터페이스는 누구나 쉽게 이해하고 즐길 수 있도록 직관적이고 가벼운 요소들로 구성되었음. 복잡한 조작 없이, 단순히 이미지를 클릭하는 방식으로 게임을 진행할 수 있으며, 게임의 목적과 규칙이 명확하게 전달될 수 있도록 설계하였음.
+            </p>
+          </section>        
+
+          <section id="issues-and-solutions">
+            <h4>문제점 & 해결</h4>
+            <ul>
+              <li><strong>[문제점]</strong>: 사용자 인터페이스 상에서 이미지를 클릭했을 때 점수 증가나 생명 감소가 시각적으로 명확하게 구분되지 않아, 게임의 피드백이 부족하고 사용자가 게임 진행 상황을 직관적으로 이해하기 어려움.</li>
+              <li><strong>[해결]</strong>: CSS의 <code>@keyframes</code> 애니메이션을 활용하여 이미지 클릭 시 점수 증가와 생명 감소에 대한 시각적 피드백을 명확하게 표시. 점수 증가 시 'blink' 효과, 생명 감소 시 'shake' 효과를 적용하여 사용자가 즉각적으로 반응을 인식할 수 있도록 함.</li>
+            </ul>
+
+          </section>
+        
+          <!-- 비디오 -->
+          <section class="project-videos">
+            <h4>인게임 비디오</h4>
+            <div class="videos">
+              <video width="500" height="400" controls autoplay loop muted>
+                <source src="image/game.mp4" type="video/mp4">
+              </video>
+              <video width="320" height="240" controls autoplay loop muted>
+                <source src="image/game_m.mp4" type="video/mp4">
+              </video>
+            </div>
+          </section>
+        
+          <!-- 이미지 갤러리 -->
+          <section class="image-gallery-section">
+            <h4>스크린샷</h4>
+
+            <div class="image-gallery">
+              <div class="image-container">
+                <img src="image/game-main.png" alt="Game main" class="gallery-image" onclick="openImage(this)">
+                <p>메인화면</p>
+              </div>
+              <div class="image-container">
+                <img src="image/game-info.png" alt="Game info" class="gallery-image" onclick="openImage(this)">
+                <p>게임방법</p>
+              </div>
+              <div class="image-container">
+                <img src="image/game-choice.png" alt="Game info" class="gallery-image" onclick="openImage(this)">
+                <p>캐릭터 선택</p>
+              </div>
+              <div class="image-container">
+                <img src="image/game-timer.png" alt="Game info" class="gallery-image" onclick="openImage(this)">
+                <p>카운트다운</p>
+              </div>
+            </div>
+
+            <div class="image-gallery">
+              <div class="image-container">
+                <img src="image/game1.png" alt="Game 1" class="gallery-image" onclick="openImage(this)">
+              </div>
+              <div class="image-container">
+                <img src="image/game2.png" alt="Game 2" class="gallery-image" onclick="openImage(this)">
+              </div>
+              <div class="image-container">
+                <img src="image/game3.png" alt="Game 3" class="gallery-image" onclick="openImage(this)">
+              </div>
+              <div class="image-container">
+                <img src="image/game4.png" alt="Game 4" class="gallery-image" onclick="openImage(this)">
+              </div>
+              <div class="image-container">
+                <img src="image/game5.png" alt="Game 5" class="gallery-image" onclick="openImage(this)">
+              </div>
+              <div class="image-container">
+                <img src="image/game6.png" alt="Game 6" class="gallery-image" onclick="openImage(this)">
+              </div>
+              <div class="image-container">
+                <img src="image/game7.png" alt="Game 7" class="gallery-image" onclick="openImage(this)">
+                <p>결과화면</p>
+              </div>
+              <div class="image-container">
+                <img src="image/game8.png" alt="Game 8" class="gallery-image" onclick="openImage(this)">
+              </div>
+              <div class="image-container">
+                <img src="image/game9.png" alt="Game 9" class="gallery-image" onclick="openImage(this)">
+              </div>
+            </div>
+          </section>
+      
+          
+        
+        
         </div>
+        
         <a href="https://github.com/daunniy/chiikawagame" target="_blank" class="portfolio-link">Github</a>
         <a href="https://daunniy.github.io/chiikawagame/" target="_blank" class="portfolio-link">URL</a>
       </div>
@@ -204,14 +318,101 @@
           <span>#PC #Mobile #반응형</span>
         </div>
         <div class="popupInfo">
-          <h3>소개</h3>
-          <p>작업기간 1주</p>
-          <video width="736" height="400" controls autoplay loop muted>
-            <source src="image/card.mp4" type="video/mp4">
-          </video>
-          <video width="320" height="240" controls autoplay loop muted>
-            <source src="image/card_m.mp4" type="video/mp4">
-          </video>
+          
+          <!-- 프로젝트 개요 -->
+          <section class="project-overview">
+            <h4>프로젝트 개요</h4>
+            <p>이 프로젝트는 신한카드 웹사이트의 사용자 경험(UX)과 사용자 인터페이스(UI)를 개선하고, 최신 웹 기술을 적용하여 사용자가 쉽게 카드 서비스 정보를 확인하고 편리하게 웹사이트를 이용할 수 있도록 설계한 프로젝트입니다.</p>
+              
+            <p>웹사이트 디자인은 신한카드의 브랜드 아이덴티티를 반영하고, 다양한 금융 서비스를 쉽게 찾을 수 있도록 하여 사용자 친화적인 경험을 제공합니다. 또한, 반응형 웹디자인을 채택하여 모바일과 PC 모두에서 최적화된 사용 환경을 제공하며, 웹 페이지 로딩 속도와 접근성을 고려하여 최적화 작업을 진행하였습니다.</p>
+              
+            <p>프로젝트는 약 3주간의 작업 기간 동안 진행되었으며, 다양한 화면 크기에서의 테스트와 피드백을 통해 개선점을 반영하여 완성도를 높였습니다. 최종 결과물은 실제 신한카드 웹사이트의 기능과 디자인을 바탕으로 다양한 사용자 환경을 고려하여 만들어졌습니다.</p>
+
+            <p>흥미가 생기셨나요? 그렇다면 <a href="https://daunniy.github.io/sinhancard/">여기↗</a> 또는 아래 (URL)버튼을 눌러서 더 자세히 알아보실 수 있습니다.</p>
+          </section>
+        
+          <!-- 주요 기능 -->
+          <section class="key-features">
+            <h4>주요 기능</h4>
+            <ul>
+              <li><strong>[모던하고 직관적인 UI]</strong>: 기존 디자인을 개선하여 사용자들이 더욱 직관적으로 사이트를 탐색할 수 있도록 레이아웃과 내비게이션을 재구성.</li>
+              <li><strong>[빠른 접근성]</strong>: 중요 서비스 및 카드를 쉽게 찾을 수 있도록 주요 기능을 상단에 배치하여 사용자의 편리함을 고려한 디자인 적용.</li>
+              <li><strong>[반응형 웹 디자인]</strong>: 다양한 디바이스에서 최적화된 UI를 제공하여 데스크탑, 태블릿, 모바일 환경에서도 사용성이 뛰어난 디자인 제공.</li>
+              <li><strong>[시각적 통일성]</strong>: 신한카드의 브랜드 아이덴티티를 유지하면서도 현대적인 디자인 트렌드를 반영하여 전체적인 일관성과 시각적 충족감을 제공.</li>
+              <li><strong>[효율적인 정보 구조]</strong>: 고객이 빠르게 원하는 정보를 찾을 수 있도록 카테고리와 메뉴 구조를 정리하고, 한눈에 들어오는 정보 배치를 적용.</li>
+            </ul>
+          </section>
+          
+          <section id="technologies">
+            <h4>사용 기술 스택</h4>
+            <ul>
+              <li><strong>HTML5</strong>: 웹사이트의 구조와 콘텐츠 레이아웃을 구축.</li>
+              <li><strong>CSS3</strong>: 스타일링 및 반응형 웹 디자인 구현, 다양한 화면 크기에서 최적화된 뷰 제공.</li>
+              <li><strong>JavaScript</strong>: 인터랙티브한 요소와 애니메이션을 구현하여 사용자의 참여도를 높이고, 직관적인 네비게이션을 가능하게 함.</li>
+              <li><strong>jQuery</strong>: 다양한 UI 요소와 애니메이션 효과를 추가하여 사용자 경험을 개선.</li>
+              <li><strong>Figma</strong>: 디자인 시안 제작과 프로토타입을 통한 진행.</li>
+            </ul>
+          </section>
+          
+          <section id="ui-ux">
+            <h4>UI/UX 디자인</h4>
+            <p>
+              신한카드의 메인 페이지 리뉴얼 디자인은 사용자의 편의성과 브랜드의 이미지 일관성을 고려하여 세련되면서도 직관적인 디자인을 채택하였습니다.
+              전체적인 디자인은 신한카드의 브랜딩 색상과 로고를 유지하면서도, 깔끔한 레이아웃과 최신 디자인 트렌드를 반영하여 시각적으로 안정감을 주었습니다. 각 서비스와 정보를 쉽게 탐색할 수 있도록 정보 구조를 명확하게 구성하고, 빠르게 접근할 수 있도록 중요한 메뉴는 눈에 띄게 배치하였습니다.
+              또한 반응형 웹 디자인을 적용하여 데스크탑, 태블릿, 모바일 환경에서도 동일한 사용자 경험을 제공할 수 있도록 했습니다.
+            </p>
+          </section>
+          
+          <section id="issues-and-solutions">
+            <h4>문제점 & 해결</h4>
+            <ul>
+              <li><strong>[문제점]</strong>: 기존 메인 페이지에서 중요 서비스나 정보를 찾는 것이 불편하고, 네비게이션이 직관적이지 않아 사용자들이 원하는 정보에 빠르게 접근하기 어려웠음.</li>
+              <li><strong>[해결]</strong>: 주요 서비스 항목을 상단에 배치하여 사용자가 첫 화면에서 쉽게 접근할 수 있도록 하고, 메뉴와 카테고리를 직관적으로 정리하여 빠른 탐색이 가능하도록 디자인함.</li>
+              <li><strong>[개선점]</strong>: 캐릭터 카드를 메인 페이지에 넣어 사용자들이 다양한 카드를 한 눈에 구경할 수 있도록 구현하였음.</li>
+            </ul>
+          </section>
+        
+          <!-- 비디오 -->
+          <section class="project-videos">
+            <h4>인게임 비디오</h4>
+            <div class="videos">
+              <video width="736" height="400" controls autoplay loop muted>
+                <source src="image/card.mp4" type="video/mp4">
+              </video>
+              <video width="320" height="240" controls autoplay loop muted>
+                <source src="image/card_m.mp4" type="video/mp4">
+              </video>
+            </div>
+          </section>
+        
+          <!-- 이미지 갤러리 -->
+          <section class="image-gallery-section">
+            <h4>스크린샷</h4>
+
+            <div class="image-gallery">
+              <div class="image-container">
+                <img src="image/card1.png" alt="Game main" class="gallery-image" onclick="openImage(this)">
+                <p>메인화면</p>
+              </div>
+              <div class="image-container">
+                <img src="image/card2.png" alt="Game info" class="gallery-image" onclick="openImage(this)">
+                <p>네비게이션</p>
+              </div>
+              <div class="image-container">
+                <img src="image/card3.png" alt="Game info" class="gallery-image" onclick="openImage(this)">
+                <p>캐릭터 카드</p>
+              </div>
+              <div class="image-container">
+                <img src="image/card4.png" alt="Game info" class="gallery-image" onclick="openImage(this)">
+                <p>이벤트 및 금융</p>
+              </div>
+              <div class="image-container">
+                <img src="image/card5.png" alt="Game info" class="gallery-image" onclick="openImage(this)">
+                <p>하단 메뉴</p>
+              </div>
+            </div>
+          </section>
+
         </div>
         <a href="https://github.com/daunniy/sinhancard" target="_blank" class="portfolio-link">Github</a>
         <a href="https://daunniy.github.io/sinhancard/" target="_blank" class="portfolio-link">URL</a>

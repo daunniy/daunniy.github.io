@@ -19,7 +19,7 @@
 }
 
 
-body, header, h1, h2, h3, p, nav, ul, li, span, input, textarea, dl, dt, dd, table, tr, th, td {
+body, header, h1, h2, h3, h4, div, p, nav, ul, li, span, input, textarea, dl, dt, dd, table, tr, th, td {
   margin:0; padding:0;
 }
 
@@ -590,6 +590,7 @@ nav {
 
 #outline.home-section>p {
   margin-left: 40px;
+  margin-bottom: 20px;
   font-size: 18px;
 }
 
@@ -736,20 +737,8 @@ nav {
   font-weight: 800;
   font-size: 38px;
 }
-.slide:nth-child(1) .text-wrap span {
-  color: #fff;
-}
-.slide:nth-child(1) .text-wrap h3 {
-  color: #FDCEDE;
-}
-.slide:nth-child(2) .text-wrap span {
-  color: #fff;
-}
-.slide:nth-child(2) .text-wrap h3 {
-  color: #8DA6F2;
-}
-.slide:nth-child(3) .text-wrap h3 {
-  color: #fff;
+.slide .text-wrap h3 {
+  color: var(--text-color-active);
 }
 
 
@@ -822,9 +811,9 @@ nav {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
-  max-width: 800px;
-  max-height: 620px;
-  padding: 30px;
+  max-width: 1000px;
+  height: 700px;
+  padding: 20px 50px;
   background-color: #000;
   border: 2px solid rgb(166, 125, 50, 0.5);
   box-sizing: border-box; /* padding이 포함된 크기 계산 */
@@ -834,10 +823,133 @@ nav {
   overflow-y: auto; /* 세로 스크롤만 표시 */
   overflow-x: hidden; /* 가로 스크롤 숨기기 */
   max-width: 800px;
-  max-height: 400px;
+  max-height: 500px;
   padding: 20px 0;
   margin: 10px 0;
 }
+
+.popupInfo section {
+  margin-bottom: 40px;
+}
+
+
+.popupInfo h4 {
+  font-size: 24px;
+}
+.popupInfo h4::after {
+  content: "";
+  display: block;
+  margin:20px 0;
+  background:rgba(205, 190, 145,0.4);
+  width: 700px;
+  height: 1px;
+}
+
+.popupInfo ul, .popupInfo p {
+  width: 700px;
+}
+
+.popupInfo p, .popupInfo li {
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+.project-overview a {
+  font-style: italic;
+  color: #0896A6;
+}
+
+.popupInfo code {
+  background: rgba(255,255,255,0.3);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.popupInfo li strong {
+  color: var(--title-color);
+}
+
+/* 이미지 갤러리 그리드 */
+.image-gallery {
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3개의 열 */
+  gap: 4px;
+  padding: 10px;
+}
+
+
+.image-gallery:nth-of-type(2) {
+  width: 300px;
+  grid-template-columns: repeat(3, 1fr); /* 3개의 열 */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 이미지가 컨테이너 밖으로 나가지 않도록 */
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05); /* 이미지에 호버 시 살짝 확대 */
+}
+
+/* 이미지 미리보기 썸네일 스타일 */
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+/* 전체 이미지를 보일 때 사용되는 컨테이너 스타일 */
+#fullImageContainer {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+/* 전체 이미지 스타일 */
+#fullImage {
+  max-width: 70%;
+  max-height: 70%;
+}
+
+/* 닫기 버튼 스타일 */
+.imgClose {
+  position: absolute;
+  top: 150px;
+  right: 450px;
+  font-size: 36px;
+  color: #000;
+  cursor: pointer;
+}
+
+/* 'hidden' 클래스는 컨테이너를 숨김 */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+
 
 /* 커스텀 스크롤바 스타일 */
 .popupInfo::-webkit-scrollbar {
@@ -845,9 +957,7 @@ nav {
   width: 1px;
 }
 
-.popupInfo h3, .popupInfo p {
-  padding: 0 10px;
-}
+
 
 
 /* 닫기 버튼 스타일 */
@@ -888,13 +998,15 @@ nav {
   gap: 10px;
 }
 
+.popupTitle h2 {
+  font-size: 28px;
+}
+
 .popupTitle span {
   color: #A69F94;
 }
 
-#popup-content p {
-  margin: 20px 0;
-}
+
 
 .portfolio-link {
   display: inline-block;

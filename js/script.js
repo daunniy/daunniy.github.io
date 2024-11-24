@@ -208,7 +208,27 @@ function closePopup() {
 
 
 
+// 이미지를 클릭하면 크게 표시
+function openImage(thumbnail) {
+  const fullImageContainer = document.getElementById('fullImageContainer');
+  const fullImage = document.getElementById('fullImage');
+  
+  // 클릭한 이미지의 src를 전체 이미지에 설정
+  fullImage.src = thumbnail.src;
+  
+  // 전체 이미지를 표시
+  fullImageContainer.style.visibility = 'visible';
+  fullImageContainer.style.opacity = '1';
+}
 
+// 이미지를 닫을 때
+function closeImage() {
+  const fullImageContainer = document.getElementById('fullImageContainer');
+  
+  // 전체 이미지를 숨김
+  fullImageContainer.style.visibility = 'hidden';
+  fullImageContainer.style.opacity = '0';
+}
 
 
 
