@@ -21,10 +21,15 @@
   <link rel="icon" type="image/png" sizes="16x16" href="image/logo.png">
 </head>
 <body>
+  <span class="custom-cursor">
+    <img class="cursor-default" src="image/cursor.png" alt="Default Cursor">
+    <img class="cursor-hover" src="image/cursor_h.png" alt="Hover Cursor">
+  </span>
+  
   <header>
     <h1><img src="image/logo.png" alt="shindaeun"></h1>
     <nav>
-      <ul class="nav">
+      <ul class="nav pointer">
         <li onclick="playSound('nav'); showMainSection('home', this)" class="selected">홈</li>
         <li onclick="playSound('nav'); showMainSection('projects', this)">프로젝트</li>
         <li onclick="playSound('nav'); showMainSection('intro', this)">정보</li>
@@ -73,7 +78,7 @@
         </div>
       <p>또는 파일을 업로드하세요</p>
       <input type="file" id="customImage" accept="image/*" onchange="previewCustomImage(event)">
-      <button onclick="addMemo()">저장</button>
+      <button class="" onclick="addMemo()">저장</button>
     </div>
   </div>
 
@@ -119,7 +124,7 @@
           </tr>
           <tr>
             <th>SNS</th>
-            <td>
+            <td class="">
               <a href="https://github.com/daunniy?tab=repositories"><img src="image/github.png" alt=""></a>
               <a href="https://www.instagram.com/daunniy/"><img src="image/insta.png" alt=""></a>
             </td>
@@ -134,7 +139,7 @@
           </tr>
           <tr>
             <th>기술 스택</th>
-            <td>
+            <td class="">
               <img src="image/html.png" alt="">
               <img src="image/css.png" alt="">
               <img src="image/js.png" alt="">
@@ -761,8 +766,6 @@
       </div>
     </div>
   </div>
-
-
   <script src="js/script.js"></script>
 </body>
 </html>

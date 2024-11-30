@@ -429,3 +429,37 @@ function loadMemos() {
 window.onload = () => {
   loadMemos();
 };
+
+
+
+const customCursor = document.querySelector('.custom-cursor');
+const cursorDefault = document.querySelector('.cursor-default');
+const cursorHover = document.querySelector('.cursor-hover');
+const elementsToHover = document.querySelectorAll('.prev, .next, .close, button, a, nav, .home-nav, .projects-nav, input, .text span, .status-indicator, .memo, .projects-section');
+
+// hover-target 클래스 추가
+elementsToHover.forEach((element) => {
+  element.classList.add('hover-target');
+});
+
+
+// 마우스 움직임에 따라 커서 위치 변경
+document.addEventListener('mousemove', (e) => {
+  customCursor.style.left = `${e.clientX}px`;
+  customCursor.style.top = `${e.clientY}px`;
+});
+
+// 특정 요소에서 호버 시 커서 전환
+const hoverTargets = document.querySelectorAll('.hover-target');
+hoverTargets.forEach((target) => {
+  target.addEventListener('mouseover', () => {
+    cursorDefault.style.display = 'none'; // 기본 커서 숨김
+    cursorHover.style.display = 'block'; // 호버 커서 표시
+  });
+
+  target.addEventListener('mouseout', () => {
+    cursorDefault.style.display = 'block'; // 기본 커서 표시
+    cursorHover.style.display = 'none'; // 호버 커서 숨김
+  });
+});
+

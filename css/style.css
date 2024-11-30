@@ -41,6 +41,11 @@ body {
   transition: background-color 0.3s, color 0.3s;
   font-family: sans-serif;
   overflow: hidden;
+  cursor: none;
+}
+
+button, a, input {
+  cursor: none; /* 기본 커서를 숨김 */
 }
 
 header, nav, #home, #projects, #intro {
@@ -155,7 +160,7 @@ nav {
   height:120px;
   line-height: 120px;
   padding:0 50px;
-  cursor: pointer;
+  cursor: url("../image/cursor_h.png");
   transition: all 0.7s, color 0.3s;
 }
 
@@ -217,7 +222,7 @@ nav {
   border-radius: 50%;
   border: 6px solid var(--text-color-active);
   position: relative;
-  cursor: pointer;
+  cursor: url("../image/cursor_h.png");
   transition: border .1s;
 }
 .profile .my>span::after {
@@ -306,7 +311,7 @@ nav {
   box-sizing: border-box;
   border-radius: 50%;
   margin-right: 4px;
-  cursor: pointer;
+  cursor: url("../image/cursor_h.png");
 }
 .profile .my .text span.away {
   background: none; /* 자리비움 상태 배경 색상 */
@@ -340,7 +345,7 @@ nav {
   background-size: contain;
   text-indent: -9999px;
   border: none;
-  cursor: pointer;
+  cursor: url("../image/cursor_h.png");
   width: 20px;
   height: 20px;
 }
@@ -357,7 +362,7 @@ nav {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  cursor: pointer;
+  cursor: url("../image/cursor_h.png");
   transition: all .2s;
   opacity: 0.7;
 }
@@ -417,14 +422,14 @@ nav {
   border: 1px solid #fff ;
   color: var(--text-color-sub);
   padding: 5px;
-  cursor: pointer;
+  cursor: url("../image/cursor_h.png");
 }
 .memo-actions {
   position: absolute;
   right: 10px;
   top:50%;
   transform: translateY(-50%);
-  cursor: pointer;
+  cursor: url("../image/cursor_h.png");
 }
 .memo button:hover {
   
@@ -496,7 +501,6 @@ nav {
   top: 10px;
   right: 10px;
   font-size: 24px;
-  cursor: pointer;
 }
 
 
@@ -515,7 +519,6 @@ nav {
 }
 .home-nav li, .projects-nav li, .intro-nav li {
   display:inline;
-  cursor: pointer;
   transition: all .3s;
   color: var(--title-color);
 }
@@ -609,7 +612,6 @@ nav {
 }
 .home-section dd img {
   width: 20px;
-  cursor: pointer;
 }
 
 #profile .container {
@@ -653,7 +655,6 @@ nav {
   display: flex;
   gap: 14px;
   width: 1000px;
-  cursor: pointer;
 }
 .projects-section .main-sect {
   min-width: 60%;
@@ -764,7 +765,6 @@ nav {
   background:linear-gradient(#fff 0%, var(--text-color-active) 100%);
   color: rgba(255,255,255,0.5);
   border: none;
-  cursor: pointer;
   font-size: 18px;
   width:30px;
   height:32px;
@@ -900,7 +900,6 @@ nav {
 .gallery-image {
   width: 100%;
   height: auto;
-  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
@@ -912,7 +911,6 @@ nav {
 .thumbnail {
   width: 100px;
   height: 100px;
-  cursor: pointer;
 }
 
 /* 전체 이미지를 보일 때 사용되는 컨테이너 스타일 */
@@ -971,7 +969,6 @@ nav {
   color: rgb(166, 125, 50, 0.7);
   border: 2px solid rgb(166, 125, 50);
   border-radius: 50%;
-  cursor: pointer;
   transition: all .3s;
   opacity: 0.8;
   z-index: 1000; /* 항상 최상위에 위치하도록 설정 */
@@ -991,7 +988,7 @@ nav {
   border-bottom: 1px solid var(--text-color-active);
   padding-bottom: 20px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 10px;
 }
 
@@ -1160,4 +1157,27 @@ nav {
   .projects-section .sect {
     height: 400px;
   }
+}
+
+
+.custom-cursor {
+  position: absolute;
+  width: 40px; /* 커서 크기 */
+  height: 50px;
+  pointer-events: none; /* 마우스 이벤트 방해하지 않음 */
+  transform: translate(-35%, -35%);
+  z-index: 9999;
+  padding: 10px;
+}
+
+.cursor-default {
+  display: block; /* 기본 커서 이미지는 항상 표시 */
+  width: 100%;
+  height: 100%;
+}
+
+.cursor-hover {
+  display: none; /* 기본적으로 숨김 */
+  width: 44px;
+  height: 52px;
 }
