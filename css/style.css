@@ -472,7 +472,7 @@ nav {
   width: 20%;
 }
 #message {
-  width: 47%;
+  width: 40%;
 }
 #password {
   width: 30%;
@@ -932,15 +932,6 @@ nav {
   max-height: 70%;
 }
 
-/* 닫기 버튼 스타일 */
-.imgClose {
-  position: absolute;
-  top: 150px;
-  right: 450px;
-  font-size: 36px;
-  color: #000;
-  cursor: pointer;
-}
 
 /* 'hidden' 클래스는 컨테이너를 숨김 */
 .hidden {

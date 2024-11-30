@@ -212,24 +212,31 @@ function closePopup() {
 function openImage(thumbnail) {
   const fullImageContainer = document.getElementById('fullImageContainer');
   const fullImage = document.getElementById('fullImage');
-  
+
   // 클릭한 이미지의 src를 전체 이미지에 설정
   fullImage.src = thumbnail.src;
-  
+
   // 전체 이미지를 표시
   fullImageContainer.style.visibility = 'visible';
   fullImageContainer.style.opacity = '1';
+
+  // 이미지 외부 클릭 시 닫기
+  fullImageContainer.addEventListener('click', function(event) {
+    // 클릭한 곳이 이미지가 아닐 때만 닫기
+    if (event.target === fullImageContainer) {
+      closeImage();
+    }
+  });
 }
 
 // 이미지를 닫을 때
 function closeImage() {
   const fullImageContainer = document.getElementById('fullImageContainer');
-  
+
   // 전체 이미지를 숨김
   fullImageContainer.style.visibility = 'hidden';
   fullImageContainer.style.opacity = '0';
 }
-
 
 
 
