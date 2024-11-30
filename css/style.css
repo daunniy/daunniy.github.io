@@ -749,6 +749,12 @@ nav {
 .sect div:nth-child(2) {
   background-image: url("../image/image5.png")
 }
+.sect div:nth-child(3) {
+  background-image: url("../image/image6.png")
+}
+.sect div:nth-child(4) {
+  background-image: url("../image/image5.png")
+}
 
 
 .prev, .next {
