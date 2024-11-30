@@ -435,7 +435,7 @@ window.onload = () => {
 const customCursor = document.querySelector('.custom-cursor');
 const cursorDefault = document.querySelector('.cursor-default');
 const cursorHover = document.querySelector('.cursor-hover');
-const elementsToHover = document.querySelectorAll('.prev, .next, .close, button, a, nav, .home-nav, .projects-nav, input, .text span, .status-indicator, .memo, .projects-section');
+const elementsToHover = document.querySelectorAll('.prev, .next, .close, button, a, nav, .home-nav, .projects-nav, .gallery-image, video, input, .text span, .status-indicator, .memo, .projects-section');
 
 // hover-target 클래스 추가
 elementsToHover.forEach((element) => {
