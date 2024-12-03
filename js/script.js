@@ -476,3 +476,25 @@ if (isDesktop()) {
   cursorHover.style.display = 'none';
 }
 
+
+const videos = document.querySelectorAll('video');
+
+videos.forEach((video) => {
+  // 비디오 재생 중 전체화면 자동 전환 방지
+  video.addEventListener('play', (e) => {
+    if (!video.getAttribute('data-user-activated')) {
+      video.setAttribute('data-user-activated', 'true');
+      video.playsInline = true; // 강제 인라인 재생
+      video.webkitPlaysInline = true; // iOS에서 인라인 재생
+    }
+  });
+
+  // 전체화면 버튼을 누를 경우 처리
+  video.addEventListener('click', () => {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitEnterFullscreen) {
+      video.webkitEnterFullscreen(); // iOS Safari
+    }
+  });
+});
