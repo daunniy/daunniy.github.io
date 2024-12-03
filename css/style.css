@@ -1163,6 +1163,13 @@ nav {
     width: 200px;
   }
   .gallery-image {
+    width: 100%;
+    max-width: 200px;
+  }
+  .image-container {
+
+  }
+  .image-gallery:nth-of-type(2) {
     width: 200px;
   }
   
