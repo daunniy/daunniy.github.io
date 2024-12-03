@@ -6,19 +6,7 @@
   <title>Profile</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="apple-touch-icon" sizes="57x57" href="image/logo.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="image/logo.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="image/logo.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="image/logo.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="image/logo.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="image/logo.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="image/logo.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="image/logo.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="image/logo.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="image/logo.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="image/logo.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="image/logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="image/logo.png">
+  <link rel="icon" href="image/logo.png">
 </head>
 <body>
   <span class="custom-cursor">
@@ -32,7 +20,6 @@
       <ul class="nav pointer">
         <li onclick="playSound('nav'); showMainSection('home', this)" class="selected">홈</li>
         <li onclick="playSound('nav'); showMainSection('projects', this)">프로젝트</li>
-        <li onclick="playSound('nav'); showMainSection('intro', this)">정보</li>
       </ul>
       <ul class="cash">
         <li onclick="playSound('nav');" class="rp">99999</li>
@@ -43,7 +30,7 @@
   <span class="header-line"></span>
   <div class="profile">
     <div class="my">
-      <span onclick="playSound('profile'); showMainSection('intro', this)" class="status-indicator"></span>
+      <span onclick="playSound('nav'); showMainSection('home', this)" class="status-indicator"></span>
       <div class="text">
         <h2>신다은</h2>
         <span onclick="toggleStatus()"></span>
@@ -819,21 +806,6 @@
     
   </div>
 
-  <div id="intro" class="section">
-    <ul class="intro-nav">
-      <li>개요</li>
-    </ul>
-    <div class="intro-section active">
-      <div class="info">
-        <p>개인/2인전</p>
-        <span></span>
-      </div>
-      <div class="skill">
-        <p>숙련도</p>
-        <span></span>
-      </div>
-    </div>
-  </div>
   <script src="js/script.js"></script>
 </body>
 </html>
